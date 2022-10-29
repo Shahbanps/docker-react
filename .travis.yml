@@ -1,0 +1,12 @@
+language: generic
+sudo: required
+services:
+  - docker
+
+
+before_install: 
+ - docker build -t shahban/docker-react -f Dockerfile.dev .
+
+
+ scripts:
+  - docker run -e CI=true shahban/docker-react npm run test
